@@ -99,13 +99,7 @@ extension PlayerViewModel {
     private func run(item: PlaylistItem) {
         guard let index = series?.playlist.firstIndex(of: item) else { return }
 
-        self.currentTimeCode = playerService.getTimeCode(userID: userID, episodeID: item.id)
-            ?? TimeCodeData(episodeID: item.id)
-
-        if currentTimeCode?.isWatched == true {
-            currentTimeCode?.isWatched = false
-            currentTimeCode?.time = 0
-        }
+        self.currentTimeCode = playerService.startTimeCode(for: item, userID: userID)
 
         playItem = PlayItem(
             index: index,
@@ -275,27 +269,12 @@ extension PlayerViewModel {
     }
 
     func save() {
-        guard changed, let playItem, var currentTimeCode else { return }
-        let time: TimeInterval
-        if let endingTime = playItem.value.endingRange?.lowerBound {
-            time = TimeInterval(endingTime - 1)
-        } else {
-            time = playItem.value.duration * 0.9
-        }
-
-        if currentTimeCode.time > time {
-            currentTimeCode.isWatched = true
-            currentTimeCode.time = playItem.value.duration - 1
-        }
-
-        self.playerService.set(
-            timeCodes: [currentTimeCode],
-            series: series,
+        guard changed, let playItem, let currentTimeCode else { return }
+        self.playerService.save(
+            timeCode: currentTimeCode,
+            of: playItem.value,
+            in: series,
             userID: userID
-        )
-        self.playerService.setActiveEpisodeID(
-            playItem.value.id,
-            for: series
         )
     }
 
@@ -315,51 +294,5 @@ extension UIInterfaceOrientationMask {
         case .all: return L10n.Common.Orientation.system
         default: return ""
         }
-    }
-}
-
-struct PlayItem {
-    let index: Int
-    let value: PlaylistItem
-    private(set) var startTime: Double = 0
-    private(set) var quality: VideoQuality?
-    private(set) var url: URL?
-
-    let isLast: Bool
-    let isFirst: Bool
-
-    var name: String {
-        if let ordinal = value.ordinal  {
-            return "\(NSNumber(value: ordinal))"
-        }
-        return value.title ?? "1"
-    }
-
-    init(index: Int,
-         value: PlaylistItem,
-         startTime: Double,
-         quality: VideoQuality,
-         itemsCount: Int) {
-        self.index = index
-        self.value = value
-        self.isLast = index == itemsCount - 1
-        self.isFirst = index == 0
-        set(quality: quality, startTime: startTime)
-    }
-
-    fileprivate mutating func set(quality: VideoQuality, startTime: Double) {
-        let videoUrl = value.video[quality]
-        if videoUrl == nil, let bestQuality = value.supportedQualities().first {
-            self.quality = bestQuality
-            self.url = value.video[bestQuality]
-        } else {
-            self.quality = quality
-            self.url = videoUrl
-        }
-        set(time: startTime)
-    }
-
-    fileprivate mutating func set(time: Double) {
-        self.startTime = time
     }
 }

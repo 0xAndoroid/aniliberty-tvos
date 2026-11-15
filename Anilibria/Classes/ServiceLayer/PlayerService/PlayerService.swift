@@ -161,6 +161,31 @@ final class PlayerServiceImp: PlayerService {
 
 }
 
+extension PlayerService {
+    /// The position to start `episode` from: the saved one, or the beginning once the episode has been watched.
+    func startTimeCode(for episode: PlaylistItem, userID: Int?) -> TimeCodeData {
+        var timeCode = getTimeCode(userID: userID, episodeID: episode.id) ?? TimeCodeData(episodeID: episode.id)
+        if timeCode.isWatched {
+            timeCode.isWatched = false
+            timeCode.time = 0
+        }
+        return timeCode
+    }
+
+    /// Saves the position and makes `episode` the active one of `series`. Past the start of the ending,
+    /// or past 90% of the duration when the ending is unknown, the episode counts as watched.
+    func save(timeCode: TimeCodeData, of episode: PlaylistItem, in series: Series, userID: Int?) {
+        var timeCode = timeCode
+        let watchedAfter = episode.endingRange.map { TimeInterval($0.lowerBound - 1) } ?? episode.duration * 0.9
+        if timeCode.time > watchedAfter {
+            timeCode.isWatched = true
+            timeCode.time = episode.duration - 1
+        }
+        set(timeCodes: [timeCode], series: series, userID: userID)
+        setActiveEpisodeID(episode.id, for: series)
+    }
+}
+
 enum HistoryUpdates {
     case removed(series: Series)
     case added(series: Series)
