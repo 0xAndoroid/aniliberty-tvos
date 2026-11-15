@@ -118,9 +118,13 @@ final class PlayerServiceImp: PlayerService {
 
     func set(timeCodes: [TimeCodeData], series: Series, userID: Int?) {
         episodesRepository.set(timeCodeData: timeCodes, for: userID)
-        backendRepository.request(SaveTimecodesRequest(items: timeCodes))
-            .sink { _ in }
-            .store(in: &cancellabes)
+        // Only an account has positions on the service. Without one the service answers 403, which
+        // MainRetrier takes for an ended session and answers with a logout.
+        if userID != nil {
+            backendRepository.request(SaveTimecodesRequest(items: timeCodes))
+                .sink { _ in }
+                .store(in: &cancellabes)
+        }
         timecodesUpdates.send(TimeCodeUpdates(seriesID: series.id, timeCodes: timeCodes))
     }
 

@@ -16,7 +16,13 @@ jobs:
       - uses: actions/checkout@v7
       - name: Select Xcode 27.0
         run: sudo xcode-select -s /Applications/Xcode_27.0.app
+      # The two simulator builds are the README's commands. They keep code signing on, which needs no
+      # certificate for a simulator: an unsigned app has no access to the keychain that holds the sign-in token.
       - name: Build the iOS app
-        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' build
       - name: Build the tvOS app
-        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' CODE_SIGNING_ALLOWED=NO build
+        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' build
+      # The device SDK lacks frameworks that the simulator SDK has, so a simulator build does not show that the
+      # app compiles for an Apple TV. Signing for a device needs a certificate the runner does not have.
+      - name: Compile the tvOS app for a device
+        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS' CODE_SIGNING_ALLOWED=NO build
