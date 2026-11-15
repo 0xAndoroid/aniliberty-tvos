@@ -13,9 +13,15 @@ import CoreData
 
 final class EpisodesRepositoryPart: DIPart {
     static func load(container: DIContainer) {
+        #if os(tvOS)
+        container.register(EpisodesDefaultsRepository.init)
+            .as(EpisodesRepository.self)
+            .lifetime(.single)
+        #else
         container.register(EpisodesRepositoryImp.init)
             .as(EpisodesRepository.self)
             .lifetime(.single)
+        #endif
     }
 }
 
