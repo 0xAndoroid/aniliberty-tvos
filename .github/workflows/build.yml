@@ -1,0 +1,22 @@
+name: build
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: xcode-27
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Select Xcode 27.0
+        run: sudo xcode-select -s /Applications/Xcode_27.0.app
+      - name: Build the iOS app
+        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+      - name: Build the tvOS app
+        run: xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' CODE_SIGNING_ALLOWED=NO build
