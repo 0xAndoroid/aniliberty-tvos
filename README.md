@@ -17,6 +17,23 @@ iOS клиент для сайта [AniLiberty](https://aniliberty.top)
 
 Другие способы можете поискать в интернете.
 
+## tvOS
+Приложение для Apple TV (tvOS 17.0 и новее) собирается из того же проекта: цель `AniLibertyTV`, код экранов лежит в папке `AniLibertyTV`. Сетевой слой, модели и логика плеера общие с iOS.
+
+Сборка для симулятора, подпись не нужна:
+
+```sh
+xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' CODE_SIGNING_ALLOWED=NO build
+```
+
+Так же собирается iOS-приложение:
+
+```sh
+xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+```
+
+Чтобы установить приложение на Apple TV, откройте проект в Xcode, выберите схему `AniLibertyTV` и запустите её на приставке.
+
 ## Планы на будущее
 - ~~Адаптация интерфейса для iPad~~.
 - ~~Темная тема~~.

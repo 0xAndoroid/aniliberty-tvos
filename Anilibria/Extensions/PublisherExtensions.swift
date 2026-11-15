@@ -6,11 +6,13 @@ public extension Publisher {
         return self.handleEvents(receiveCompletion: { _ in action()})
     }
 
+    #if os(iOS)
     func manageActivity(_ activity: ActivityDisposable?) -> Publishers.HandleEvents<Self> {
         return self.afterDone {
             activity?.dispose()
         }
     }
+    #endif
 
     func `do`(onNext: ((Output) -> Void)?) -> Publishers.HandleEvents<Self> {
         return self.handleEvents(receiveOutput: { value in onNext?(value) })

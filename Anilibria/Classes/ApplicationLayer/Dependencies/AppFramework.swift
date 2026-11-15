@@ -6,7 +6,9 @@ public class AppFramework: DIFramework {
         container.append(part: SomePart.self)
         container.append(part: RepositoriesPart.self)
         container.append(part: ServicesPart.self)
+        #if os(iOS)
         container.append(part: PersentersPart.self)
+        #endif
     }
 }
 
@@ -59,6 +61,7 @@ private class ServicesPart: DIPart {
     }
 }
 
+#if os(iOS)
 private class PersentersPart: DIPart {
     static let parts: [DIPart.Type] = [
         MainContainerPart.self,
@@ -88,6 +91,7 @@ private class PersentersPart: DIPart {
         }
     }
 }
+#endif
 
 private class SomePart: DIPart {
     static func load(container: DIContainer) {

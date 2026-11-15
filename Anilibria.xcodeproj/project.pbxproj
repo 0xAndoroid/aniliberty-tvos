@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12EEAB38ED35432B9C944040 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = DEE06132D95D463288394C68 /* DITranquillity */; };
 		C72BFEEA2B0F687E0093FD64 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C72BFEE92B0F687E0093FD64 /* Kingfisher */; };
 		C72BFEED2B0F69160093FD64 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = C72BFEEC2B0F69160093FD64 /* DITranquillity */; };
 		C7B0F2CC22D6F0B100540CA9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B0F2CB22D6F0B100540CA9 /* WebKit.framework */; };
 		C7F05CA82E4EFC45006A021F /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = C7F05CA72E4EFC45006A021F /* AppMetricaCore */; };
 		C7F05CAA2E4EFC45006A021F /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = C7F05CA92E4EFC45006A021F /* AppMetricaCrashes */; };
+		F800375AF9944AFD884DACFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9DF16CD21E453B9C3A7D36 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,28 +30,91 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37D2D9776ED94CC6A79CAD3C /* AniLibertyTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniLibertyTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B0F2CB22D6F0B100540CA9 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		C7D4623F22CC73DF00E763DF /* AniLiberty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniLiberty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC1093AAB4EE4A0FA9BBC49B /* Anilibria.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Anilibria.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4151A86BEA6A4A90A2C22DA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				SpringIndicator/LICENSE,
+			);
+			target = C7D4623E22CC73DF00E763DF /* AniLiberty */;
+		};
+		58C6B50861EA4CEF9AFC4510 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				UICollectionViewCellExtension.swift,
+				UIControlExtension.swift,
+				UIImageViewExtension.swift,
+				UIInterfaceOrientationExtension.swift,
+				UIScreenExtension.swift,
+				UITextFieldExtension.swift,
+				UIViewExtension.swift,
+			);
+			target = 17E6D8F40D44449790ECB81B /* AniLibertyTV */;
+		};
+		810353B375BC4388A5B94E7C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppDelegate/AppDelegate.swift,
+				AppDelegate/SceneDelegate.swift,
+				MainCoordinator/AppRouter.swift,
+				MainCoordinator/MainAppCoordinator.swift,
+			);
+			target = 17E6D8F40D44449790ECB81B /* AniLibertyTV */;
+		};
+		B9BEB3F8406043C09B2F2CE3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Animations/nyan_cat.gif,
+				AppIcon.icon,
+				Font/AppFont.swift,
+				Info.plist,
+				Localize/GenerationScript,
+				Localize/GenerationScript.swift,
+				Theme/AppTheme.swift,
+				Theme/InterfaceAppearance.swift,
+				Theme/InterfaceOrientation.swift,
+			);
+			target = 17E6D8F40D44449790ECB81B /* AniLibertyTV */;
+		};
 		C72B5FAB2CB11F3B00AC89EE /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Resources/Info.plist,
-				Resources/Localize/GenerationScript,
-				Resources/Localize/GenerationScript.swift,
-				Vendor/SpringIndicator/LICENSE,
+				Info.plist,
+				Localize/GenerationScript,
+				Localize/GenerationScript.swift,
 			);
 			target = C7D4623E22CC73DF00E763DF /* AniLiberty */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		C72B5E612CB11F3B00AC89EE /* Anilibria */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (C72B5FAB2CB11F3B00AC89EE /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {Classes/PresentationLayer/Modules/ActionSheet/ActionSheetContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/ActionSheet/ActionSheetPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/ActionSheet/ActionSheetRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Catalog/MRCatalogAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Catalog/MRCatalogContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Catalog/MRCatalogPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Catalog/MRCatalogRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Catalog/MRCatalogView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Feed/MRFeedAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Feed/MRFeedContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Feed/MRFeedPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Feed/MRFeedRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Feed/MRFeedView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Filter/MRFilterAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Filter/MRFilterContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Filter/MRFilterPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Filter/MRFilterRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Filter/MRFilterView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/History/MRHistoryAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/History/MRHistoryContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/History/MRHistoryPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/History/MRHistoryRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/History/MRHistoryView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/MainContainer/MRMainContainerAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/MainContainer/MRMainContainerContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/MainContainer/MRMainContainerPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/MainContainer/MRMainContainerRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/MainContainer/MRMainContainerView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/News/MRNewsAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/News/MRNewsContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/News/MRNewsPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/News/MRNewsRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/News/MRNewsView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Other/MROtherAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Other/MROtherContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Other/MROtherPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Other/MROtherRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Other/MROtherView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Player/MRPlayerAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Player/MRPlayerRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Player/MRPlayerView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Player/PlayerViewModel.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Schedule/MRScheduleAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Schedule/MRScheduleContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Schedule/MRSchedulePresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Schedule/MRScheduleRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Schedule/MRScheduleView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Search/MRSearchAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Search/MRSearchContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Search/MRSearchPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Search/MRSearchRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Search/MRSearchView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Series/MRSeriesAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Series/MRSeriesContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Series/MRSeriesPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Series/MRSeriesRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Series/MRSeriesView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Settings/MRSettingsAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Settings/MRSettingsContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Settings/MRSettingsPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Settings/MRSettingsRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/Settings/MRSettingsView.swift = sourcecode.swift; Classes/PresentationLayer/Modules/SignIn/MRSignInAssembly.swift = sourcecode.swift; Classes/PresentationLayer/Modules/SignIn/MRSignInContracts.swift = sourcecode.swift; Classes/PresentationLayer/Modules/SignIn/MRSignInPresenter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/SignIn/MRSignInRouter.swift = sourcecode.swift; Classes/PresentationLayer/Modules/SignIn/MRSignInView.swift = sourcecode.swift; }; explicitFolders = (); path = Anilibria; sourceTree = "<group>"; };
+		06B26AB52829401DB24E42CC /* Vendor */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (4151A86BEA6A4A90A2C22DA7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = Vendor; sourceTree = "<group>"; };
+		621204877A4349B4BA971F57 /* AniLibertyTV */ = {isa = PBXFileSystemSynchronizedRootGroup; path = AniLibertyTV; sourceTree = "<group>"; };
+		6EC097EF19E44E8699E92C8A /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (C72B5FAB2CB11F3B00AC89EE /* PBXFileSystemSynchronizedBuildFileExceptionSet */, B9BEB3F8406043C09B2F2CE3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = Resources; sourceTree = "<group>"; };
+		A181C0E1482449B588E0EB5A /* ServiceLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; path = ServiceLayer; sourceTree = "<group>"; };
+		C328F95D7A75438BA8B8B31B /* ApplicationLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (810353B375BC4388A5B94E7C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = ApplicationLayer; sourceTree = "<group>"; };
+		DA634ADAE19244829F2083EB /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; path = Common; sourceTree = "<group>"; };
+		DBF1B4B7E3274DA8A643520E /* DataLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DataLayer; sourceTree = "<group>"; };
+		FE2F8A5C23134702B26BD609 /* PresentationLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {Modules/ActionSheet/ActionSheetContracts.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetPresenter.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogAssembly.swift = sourcecode.swift; Modules/Catalog/MRCatalogContracts.swift = sourcecode.swift; Modules/Catalog/MRCatalogPresenter.swift = sourcecode.swift; Modules/Catalog/MRCatalogRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogView.swift = sourcecode.swift; Modules/Feed/MRFeedAssembly.swift = sourcecode.swift; Modules/Feed/MRFeedContracts.swift = sourcecode.swift; Modules/Feed/MRFeedPresenter.swift = sourcecode.swift; Modules/Feed/MRFeedRouter.swift = sourcecode.swift; Modules/Feed/MRFeedView.swift = sourcecode.swift; Modules/Filter/MRFilterAssembly.swift = sourcecode.swift; Modules/Filter/MRFilterContracts.swift = sourcecode.swift; Modules/Filter/MRFilterPresenter.swift = sourcecode.swift; Modules/Filter/MRFilterRouter.swift = sourcecode.swift; Modules/Filter/MRFilterView.swift = sourcecode.swift; Modules/History/MRHistoryAssembly.swift = sourcecode.swift; Modules/History/MRHistoryContracts.swift = sourcecode.swift; Modules/History/MRHistoryPresenter.swift = sourcecode.swift; Modules/History/MRHistoryRouter.swift = sourcecode.swift; Modules/History/MRHistoryView.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerAssembly.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerContracts.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerPresenter.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerRouter.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerView.swift = sourcecode.swift; Modules/News/MRNewsAssembly.swift = sourcecode.swift; Modules/News/MRNewsContracts.swift = sourcecode.swift; Modules/News/MRNewsPresenter.swift = sourcecode.swift; Modules/News/MRNewsRouter.swift = sourcecode.swift; Modules/News/MRNewsView.swift = sourcecode.swift; Modules/Other/MROtherAssembly.swift = sourcecode.swift; Modules/Other/MROtherContracts.swift = sourcecode.swift; Modules/Other/MROtherPresenter.swift = sourcecode.swift; Modules/Other/MROtherRouter.swift = sourcecode.swift; Modules/Other/MROtherView.swift = sourcecode.swift; Modules/Player/MRPlayerAssembly.swift = sourcecode.swift; Modules/Player/MRPlayerRouter.swift = sourcecode.swift; Modules/Player/MRPlayerView.swift = sourcecode.swift; Modules/Player/PlayerViewModel.swift = sourcecode.swift; Modules/Schedule/MRScheduleAssembly.swift = sourcecode.swift; Modules/Schedule/MRScheduleContracts.swift = sourcecode.swift; Modules/Schedule/MRSchedulePresenter.swift = sourcecode.swift; Modules/Schedule/MRScheduleRouter.swift = sourcecode.swift; Modules/Schedule/MRScheduleView.swift = sourcecode.swift; Modules/Search/MRSearchAssembly.swift = sourcecode.swift; Modules/Search/MRSearchContracts.swift = sourcecode.swift; Modules/Search/MRSearchPresenter.swift = sourcecode.swift; Modules/Search/MRSearchRouter.swift = sourcecode.swift; Modules/Search/MRSearchView.swift = sourcecode.swift; Modules/Series/MRSeriesAssembly.swift = sourcecode.swift; Modules/Series/MRSeriesContracts.swift = sourcecode.swift; Modules/Series/MRSeriesPresenter.swift = sourcecode.swift; Modules/Series/MRSeriesRouter.swift = sourcecode.swift; Modules/Series/MRSeriesView.swift = sourcecode.swift; Modules/Settings/MRSettingsAssembly.swift = sourcecode.swift; Modules/Settings/MRSettingsContracts.swift = sourcecode.swift; Modules/Settings/MRSettingsPresenter.swift = sourcecode.swift; Modules/Settings/MRSettingsRouter.swift = sourcecode.swift; Modules/Settings/MRSettingsView.swift = sourcecode.swift; Modules/SignIn/MRSignInAssembly.swift = sourcecode.swift; Modules/SignIn/MRSignInContracts.swift = sourcecode.swift; Modules/SignIn/MRSignInPresenter.swift = sourcecode.swift; Modules/SignIn/MRSignInRouter.swift = sourcecode.swift; Modules/SignIn/MRSignInView.swift = sourcecode.swift; }; path = PresentationLayer; sourceTree = "<group>"; };
+		FF8A9A6CEDAD4ED5B05E4300 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (58C6B50861EA4CEF9AFC4510 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7B3977620AE649619D91D1D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12EEAB38ED35432B9C944040 /* DITranquillity in Frameworks */,
+				F800375AF9944AFD884DACFF /* Kingfisher in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7D4623C22CC73DF00E763DF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,10 +138,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8499C7376C10415CAFC427DA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C328F95D7A75438BA8B8B31B /* ApplicationLayer */,
+				DA634ADAE19244829F2083EB /* Common */,
+				DBF1B4B7E3274DA8A643520E /* DataLayer */,
+				FE2F8A5C23134702B26BD609 /* PresentationLayer */,
+				A181C0E1482449B588E0EB5A /* ServiceLayer */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		B0CAFD8D9CAC475E9FB2555E /* Anilibria */ = {
+			isa = PBXGroup;
+			children = (
+				EC1093AAB4EE4A0FA9BBC49B /* Anilibria.entitlements */,
+				8499C7376C10415CAFC427DA /* Classes */,
+				FF8A9A6CEDAD4ED5B05E4300 /* Extensions */,
+				6EC097EF19E44E8699E92C8A /* Resources */,
+				06B26AB52829401DB24E42CC /* Vendor */,
+			);
+			path = Anilibria;
+			sourceTree = "<group>";
+		};
 		C7D4623622CC73DF00E763DF = {
 			isa = PBXGroup;
 			children = (
-				C72B5E612CB11F3B00AC89EE /* Anilibria */,
+				B0CAFD8D9CAC475E9FB2555E /* Anilibria */,
+				621204877A4349B4BA971F57 /* AniLibertyTV */,
 				C7D4624022CC73DF00E763DF /* Products */,
 				1E00FA7C1790713686A9CDAF /* Frameworks */,
 			);
@@ -86,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				C7D4623F22CC73DF00E763DF /* AniLiberty.app */,
+				37D2D9776ED94CC6A79CAD3C /* AniLibertyTV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,6 +184,36 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		17E6D8F40D44449790ECB81B /* AniLibertyTV */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED97727F3688481C8545A9FD /* Build configuration list for PBXNativeTarget "AniLibertyTV" */;
+			buildPhases = (
+				C7EA65333C304EBF9F884AC5 /* Sources */,
+				7B3977620AE649619D91D1D6 /* Frameworks */,
+				136140A383EF46048ACFFF0A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C328F95D7A75438BA8B8B31B /* ApplicationLayer */,
+				DA634ADAE19244829F2083EB /* Common */,
+				DBF1B4B7E3274DA8A643520E /* DataLayer */,
+				A181C0E1482449B588E0EB5A /* ServiceLayer */,
+				FF8A9A6CEDAD4ED5B05E4300 /* Extensions */,
+				6EC097EF19E44E8699E92C8A /* Resources */,
+				621204877A4349B4BA971F57 /* AniLibertyTV */,
+			);
+			name = AniLibertyTV;
+			packageProductDependencies = (
+				5E9DF16CD21E453B9C3A7D36 /* Kingfisher */,
+				DEE06132D95D463288394C68 /* DITranquillity */,
+			);
+			productName = AniLibertyTV;
+			productReference = 37D2D9776ED94CC6A79CAD3C /* AniLibertyTV.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C7D4623E22CC73DF00E763DF /* AniLiberty */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7D4625122CC73E100E763DF /* Build configuration list for PBXNativeTarget "AniLiberty" */;
@@ -109,7 +230,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				C72B5E612CB11F3B00AC89EE /* Anilibria */,
+				C328F95D7A75438BA8B8B31B /* ApplicationLayer */,
+				DA634ADAE19244829F2083EB /* Common */,
+				DBF1B4B7E3274DA8A643520E /* DataLayer */,
+				FE2F8A5C23134702B26BD609 /* PresentationLayer */,
+				A181C0E1482449B588E0EB5A /* ServiceLayer */,
+				FF8A9A6CEDAD4ED5B05E4300 /* Extensions */,
+				6EC097EF19E44E8699E92C8A /* Resources */,
+				06B26AB52829401DB24E42CC /* Vendor */,
 			);
 			name = AniLiberty;
 			packageProductDependencies = (
@@ -133,6 +261,9 @@
 				LastUpgradeCheck = 1640;
 				ORGANIZATIONNAME = "Иван Морозов";
 				TargetAttributes = {
+					17E6D8F40D44449790ECB81B = {
+						CreatedOnToolsVersion = 27.0;
+					};
 					C7D4623E22CC73DF00E763DF = {
 						CreatedOnToolsVersion = 10.2.1;
 						SystemCapabilities = {
@@ -166,11 +297,19 @@
 			projectRoot = "";
 			targets = (
 				C7D4623E22CC73DF00E763DF /* AniLiberty */,
+				17E6D8F40D44449790ECB81B /* AniLibertyTV */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		136140A383EF46048ACFFF0A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7D4623D22CC73DF00E763DF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -231,9 +370,71 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C7EA65333C304EBF9F884AC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		8F083FE7B19A4BA68E3891F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = WTM4H68775;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AniLiberty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ee.andrew.aniliberty;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Debug;
+		};
+		BC15E5B8E5834A8987BC7515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = WTM4H68775;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AniLiberty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ee.andrew.aniliberty;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+			};
+			name = Release;
+		};
 		C7D4624F22CC73E100E763DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -441,6 +642,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		ED97727F3688481C8545A9FD /* Build configuration list for PBXNativeTarget "AniLibertyTV" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F083FE7B19A4BA68E3891F7 /* Debug */,
+				BC15E5B8E5834A8987BC7515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
@@ -471,6 +681,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5E9DF16CD21E453B9C3A7D36 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C72BFEE82B0F687E0093FD64 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		C72BFEE92B0F687E0093FD64 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C72BFEE82B0F687E0093FD64 /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -490,6 +705,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C7F05CA62E4EFC45006A021F /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
 			productName = AppMetricaCrashes;
+		};
+		DEE06132D95D463288394C68 /* DITranquillity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C72BFEEB2B0F69160093FD64 /* XCRemoteSwiftPackageReference "DITranquillity" */;
+			productName = DITranquillity;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,0 +1,8 @@
+[files]
+# Xcode writes the project file; its object identifiers are random hexadecimal strings.
+extend-exclude = ["*.pbxproj"]
+
+# Identifiers declared in the iOS code and used by the tvOS screens.
+[default.extend-identifiers]
+sotring = "sotring"
+sortings = "sortings"
