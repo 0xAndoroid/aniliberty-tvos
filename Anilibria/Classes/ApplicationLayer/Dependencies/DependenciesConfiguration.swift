@@ -1,8 +1,7 @@
 import DITranquillity
 import Kingfisher
 import UIKit
-#if targetEnvironment(macCatalyst)
-#else
+#if os(iOS) && !targetEnvironment(macCatalyst)
 import AppMetricaCore
 #endif
 
@@ -41,8 +40,7 @@ public class DependenciesConfigurationBase: DependenciesConfiguration, Loggable 
     }
 
     private func setupMetrica() {
-        #if targetEnvironment(macCatalyst)
-        #else
+        #if os(iOS) && !targetEnvironment(macCatalyst)
         if let config = AppMetricaConfiguration(apiKey: Keys.yandexMetricaApiKey) {
             AppMetrica.activate(with: config)
         }
@@ -58,6 +56,8 @@ public class DependenciesConfigurationBase: DependenciesConfiguration, Loggable 
     }
 
     private func setupLoader() {
+        #if os(iOS)
         MRLoaderManager.configure(with: MRLoaderView.self)
+        #endif
     }
 }

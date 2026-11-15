@@ -13,9 +13,15 @@ import CoreData
 
 final class HistoryRepositoryPart: DIPart {
     static func load(container: DIContainer) {
+        #if os(tvOS)
+        container.register(HistoryDefaultsRepository.init)
+            .as(HistoryRepository.self)
+            .lifetime(.single)
+        #else
         container.register(HistoryRepositoryImp.init)
             .as(HistoryRepository.self)
             .lifetime(.single)
+        #endif
     }
 }
 
