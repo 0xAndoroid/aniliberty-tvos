@@ -20,19 +20,25 @@ iOS клиент для сайта [AniLiberty](https://aniliberty.top)
 ## tvOS
 Приложение для Apple TV (tvOS 17.0 и новее) собирается из того же проекта: цель `AniLibertyTV`, код экранов лежит в папке `AniLibertyTV`. Сетевой слой, модели и логика плеера общие с iOS.
 
-Сборка для симулятора, подпись не нужна:
+Сборка для симулятора. Сертификат разработчика не нужен: такую сборку Xcode подписывает локально.
 
 ```sh
-xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS Simulator' build
 ```
 
 Так же собирается iOS-приложение:
 
 ```sh
-xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project Anilibria.xcodeproj -scheme AniLiberty -destination 'generic/platform=iOS Simulator' build
 ```
 
-Чтобы установить приложение на Apple TV, откройте проект в Xcode, выберите схему `AniLibertyTV` и запустите её на приставке.
+Не отключайте подпись (`CODE_SIGNING_ALLOWED=NO`) в сборке, которую будете запускать: без подписи приложение не получает доступа к связке ключей, где хранится токен входа.
+
+Чтобы установить приложение на Apple TV, откройте проект в Xcode, выберите схему `AniLibertyTV` и запустите её на приставке. Проверить, что приложение компилируется для приставки, можно без сертификата:
+
+```sh
+xcodebuild -project Anilibria.xcodeproj -scheme AniLibertyTV -destination 'generic/platform=tvOS' CODE_SIGNING_ALLOWED=NO build
+```
 
 ## Планы на будущее
 - ~~Адаптация интерфейса для iPad~~.
