@@ -101,8 +101,12 @@ final class HistoryDefaultsRepository: HistoryRepository {
     private static let limit = 100
 
     func getSeriesHistory() -> AnyPublisher<[Series], Never> {
-        let history: [Series] = UserDefaults.standard[Self.key] ?? []
-        return .just(history)
+        // Decoded off the main thread, as in the Core Data repository: decoding a title converts its description
+        // from HTML, which takes about 2 ms a title even when the description is empty.
+        Deferred { Just(UserDefaults.standard[Self.key] ?? [Series]()) }
+            .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
 
     func getActiveEpisode(for seriesID: Int) -> ActiveEpisode? {
