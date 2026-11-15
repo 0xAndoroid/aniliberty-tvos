@@ -88,8 +88,6 @@ struct SeriesView: View {
                     Text(series.notification)
                         .foregroundStyle(Theme.brand)
                 }
-                // The description is the one control that is there before the episodes load and when
-                // there are none. A page with nothing to focus cannot be left: Menu would quit the app.
                 Button {
                     isDescriptionShown = true
                 } label: {
@@ -130,11 +128,15 @@ struct SeriesView: View {
                 Task { await load() }
             }
         } else if !isLoaded {
+            // Focusable, like the text below: a page with nothing to focus cannot be left, Menu would quit the
+            // app. A title opened from the continue row has no description to focus until it has loaded.
             ProgressView()
                 .frame(maxWidth: .infinity)
+                .focusable()
         } else if series.playlist.isEmpty {
             Text(series.isBlocked ? L10n.Common.contentBlocked : L10n.Stub.noEpisodes)
                 .foregroundStyle(Theme.muted)
+                .focusable()
         } else {
             SectionTitle(L10n.Screen.Series.episodes)
             LazyVStack(spacing: 16) {
