@@ -20,6 +20,8 @@ protocol SessionService: AnyObject {
     func fetchUser() -> AnyPublisher<User, Error>
 
     func accept(otp code: String) -> AnyPublisher<Void, Error>
+    func getOTP(deviceID: String) -> AnyPublisher<OTPData, Error>
+    func signIn(otpCode: String, deviceID: String) -> AnyPublisher<User, Error>
 
     func forceLogout()
     func logout()
@@ -170,6 +172,46 @@ final class SessionServiceImp: SessionService, Loggable {
             return self.backendRepository
                 .request(request)
                 .map { _ in }
+        }
+        .subscribe(on: DispatchQueue.global())
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+
+    func getOTP(deviceID: String) -> AnyPublisher<OTPData, Error> {
+        return Deferred { [unowned self] in
+            let request = GetOTPRequest(deviceID: deviceID)
+            return self.backendRepository
+                .request(request)
+        }
+        .subscribe(on: DispatchQueue.global())
+        .receive(on: DispatchQueue.main)
+        .eraseToAnyPublisher()
+    }
+
+    func signIn(otpCode: String, deviceID: String) -> AnyPublisher<User, Error> {
+        return Deferred { [unowned self] in
+            let request = LoginRequest(otpCode: otpCode, deviceID: deviceID)
+            return self.backendRepository
+                .request(request, retrier: SimpleRetrier { error, _, completion in
+                    // Until the user accepts the code the service answers 401 by its documentation
+                    // and 500 in practice (observed 14.11.2026); 404 means the code is gone.
+                    if case let .network(code) = error as? AppError, code == 401 || code == 500 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            completion(true)
+                        })
+                    } else {
+                        completion(false)
+                    }
+                })
+                .flatMap { [unowned self] data in
+                    self.tokenRepository.set(token: data.token)
+                    return self.backendRepository.request(UserRequest())
+                }
+                .do(onNext: { [unowned self] user in
+                    self.userRepository.set(user: user)
+                    self.statusRelay.send(.user(user))
+                })
         }
         .subscribe(on: DispatchQueue.global())
         .receive(on: DispatchQueue.main)

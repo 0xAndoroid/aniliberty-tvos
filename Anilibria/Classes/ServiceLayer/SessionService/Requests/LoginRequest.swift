@@ -18,6 +18,14 @@ public struct LoginRequest: BackendAPIRequest {
             parameters: ["state": provider.state]
         )
     }
+
+    init(otpCode: String, deviceID: String) {
+        requestData = .init(
+            endpoint: "/accounts/otp/login",
+            method: .POST,
+            body: ["code": otpCode, "device_id": deviceID]
+        )
+    }
 }
 
 private struct LoginBody: Encodable {
