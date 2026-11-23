@@ -31,7 +31,6 @@ struct SearchView: View {
             .searchable(text: $query, prompt: L10n.Common.Search.byName)
         }
         .task(id: trimmedQuery) {
-            // Wait for a pause in typing; a new character cancels this task.
             try? await Task.sleep(for: .milliseconds(400))
             if !Task.isCancelled {
                 await search()

@@ -10,7 +10,6 @@ import Combine
 import DITranquillity
 import Observation
 
-/// The services of the iOS app, resolved from the dependency container it builds, and the signed-in user.
 @MainActor
 @Observable
 final class AppModel {
@@ -48,7 +47,6 @@ final class AppModel {
 }
 
 extension Publisher {
-    /// The first value of a publisher that emits once, such as a service request.
     func firstValue() async throws -> Output {
         for try await value in values {
             return value

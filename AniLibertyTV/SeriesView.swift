@@ -219,7 +219,6 @@ struct SeriesView: View {
         if let saved = try? await app.player.getTimeCodes(userID: app.user?.id, episodeIDs: playlist.map(\.id)).firstValue() {
             timeCodes = saved
         }
-        // The play button starts the last episode played, or the next one once that was watched to the end.
         var index = app.player.getActiveEpisodeID(for: series).flatMap { id in
             playlist.firstIndex { $0.id == id }
         } ?? 0

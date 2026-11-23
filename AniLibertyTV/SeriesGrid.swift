@@ -10,7 +10,6 @@ import Combine
 import Kingfisher
 import SwiftUI
 
-/// A tab's navigation stack: every poster inside it opens the title page.
 struct SeriesStack<Content: View>: View {
     @ViewBuilder var content: Content
 
@@ -77,7 +76,6 @@ struct SeriesGrid: View {
     }
 }
 
-/// A paged grid with its loading, empty and failure states.
 struct PagedSeriesGrid: View {
     let pages: SeriesPages
     var emptyMessage = L10n.Stub.title
@@ -115,7 +113,6 @@ struct LoadFailure: View {
     }
 }
 
-/// A list of releases that the service returns page by page.
 @MainActor
 @Observable
 final class SeriesPages {
