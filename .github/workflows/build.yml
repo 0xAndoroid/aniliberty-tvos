@@ -18,21 +18,38 @@ jobs:
     timeout-minutes: 5
     permissions:
       actions: read
-      contents: read
     outputs:
-      run: ${{ steps.select.outputs.run }}
+      skip: ${{ steps.select.outputs.skip }}
     steps:
-      - uses: actions/checkout@v7
       - id: select
-        run: python3 .github/scripts/nightly-preflight.py
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          cutoff=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" --jq '.created_at') || exit 0
+          [[ "$cutoff" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$ ]] || exit 0
+          # GitHub can update completed runs later; ambiguous timing must not skip a build.
+          previous_sha=$(
+            gh api --method GET "repos/$GITHUB_REPOSITORY/actions/workflows/build.yml/runs" \
+              -f branch="$GITHUB_REF_NAME" -f event=schedule -f status=completed \
+              -f "created=<$cutoff" -F per_page=30 |
+            jq -er --argjson id "$GITHUB_RUN_ID" --argjson number "$GITHUB_RUN_NUMBER" \
+              --arg cutoff "$cutoff" '
+              [.workflow_runs[] | select(.id != $id and (.run_number | numbers) < $number
+                and (.conclusion == "success" or .conclusion == "failure"))]
+              | (max_by(.run_number) // empty)
+              | select((.updated_at | fromdateiso8601) < ($cutoff | fromdateiso8601))
+              | .head_sha // empty'
+          ) || exit 0
+          if [[ "$previous_sha" =~ ^[0-9a-f]{40}$ && "$previous_sha" == "$GITHUB_SHA" ]]; then
+            echo 'skip=true' >> "$GITHUB_OUTPUT"
+          fi
 
   build:
     needs: nightly-preflight
     if: >-
-      !cancelled() && (github.event_name != 'schedule' ||
-      (needs.nightly-preflight.result == 'success' && needs.nightly-preflight.outputs.run != 'false'))
+      !cancelled() && (needs.nightly-preflight.result != 'success' ||
+      needs.nightly-preflight.outputs.skip != 'true')
     runs-on: xcode-27
     timeout-minutes: 45
     steps:
