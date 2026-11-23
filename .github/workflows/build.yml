@@ -12,7 +12,27 @@ permissions:
   contents: read
 
 jobs:
+  nightly-preflight:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      contents: read
+    outputs:
+      run: ${{ steps.select.outputs.run }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: select
+        run: python3 .github/scripts/nightly-preflight.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+
   build:
+    needs: nightly-preflight
+    if: >-
+      !cancelled() && (github.event_name != 'schedule' ||
+      (needs.nightly-preflight.result == 'success' && needs.nightly-preflight.outputs.run != 'false'))
     runs-on: xcode-27
     timeout-minutes: 45
     steps:
