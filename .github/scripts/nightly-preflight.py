@@ -16,18 +16,25 @@ def commit_sha(value):
     return value
 
 
-def finished_build(run):
+def finished_build(run, cutoff):
     jobs = actions_api(f"runs/{run['id']}/attempts/{run['run_attempt']}/jobs")["jobs"]
     if not isinstance(jobs, list):
         raise ValueError("expected a list of jobs for the prior run attempt")
-    completed = {job["name"]: job for job in jobs if job["status"] == "completed"}
-    build = completed.get("build")
+    if any(
+        job["status"] != "completed" or not job["completed_at"]
+        or datetime.fromisoformat(job["completed_at"]) >= cutoff
+        for job in jobs
+    ):
+        return False
+
+    jobs_by_name = {job["name"]: job for job in jobs}
+    build = jobs_by_name.get("build")
     if build is None:
         return False
 
     # A successful preflight can skip the build only after proving coverage of this same SHA.
     if build["conclusion"] == "skipped":
-        preflight = completed.get("nightly-preflight", {})
+        preflight = jobs_by_name.get("nightly-preflight", {})
         return run["conclusion"] == "success" and preflight.get("conclusion") == "success"
 
     # Only the Xcode steps in build.yml count, not failures to set up the runner or SwiftLint.
@@ -35,7 +42,7 @@ def finished_build(run):
     outcomes = [steps.get(name) for name in (
         "Build the iOS app", "Build the tvOS app", "Compile the tvOS app for a device"
     )]
-    return (build["conclusion"] == "success" and all(outcome == "success" for outcome in outcomes)
+    return (build["conclusion"] in ("success", "failure") and all(outcome == "success" for outcome in outcomes)
             or build["conclusion"] == "failure" and "failure" in outcomes)
 
 
@@ -62,11 +69,10 @@ def main():
         if (prior["id"] == run_id or prior["run_number"] >= current["run_number"]
                 or prior["workflow_id"] != workflow_id or prior["head_branch"] != branch
                 or prior["event"] != "schedule" or prior["status"] != "completed"
-                or prior["conclusion"] not in ("success", "failure")
-                or datetime.fromisoformat(prior["updated_at"]) >= cutoff):
+                or prior["conclusion"] not in ("success", "failure")):
             continue
         previous_sha = commit_sha(prior["head_sha"])
-        if finished_build(prior):
+        if finished_build(prior, cutoff):
             run_build = previous_sha != sha
             print(f"Prior completed nightly {prior['id']} checked {previous_sha}; current SHA is {sha}.")
             break
