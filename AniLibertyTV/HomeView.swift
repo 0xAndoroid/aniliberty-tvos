@@ -66,7 +66,6 @@ struct HomeView: View {
         do {
             latest = try await app.catalog.fetchCatalog(page: 1, limit: 30, data: freshFirst).firstValue()
         } catch {
-            // A failed refresh keeps the releases that are already on screen.
             if latest.isEmpty, !(error is CancellationError) {
                 self.error = error.message
             }

@@ -40,7 +40,6 @@ struct ProfileView: View {
     }
 }
 
-/// Shows a one-time code and waits until the user accepts it from a signed-in device.
 private struct CodeSignInView: View {
     @Environment(AppModel.self) private var app
     @Environment(\.dismiss) private var dismiss
@@ -89,7 +88,6 @@ private struct CodeSignInView: View {
                 dismiss()
                 return
             } catch {
-                // The code expired or a request failed: show a new code after a pause.
                 code = nil
                 if !(error is CancellationError) {
                     self.error = error.message

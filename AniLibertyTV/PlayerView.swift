@@ -9,7 +9,6 @@
 import AVKit
 import SwiftUI
 
-/// The system player for one episode. It starts from the saved position and saves the position when it closes.
 struct PlayerView: UIViewControllerRepresentable {
     let series: Series
     let episode: PlaylistItem
