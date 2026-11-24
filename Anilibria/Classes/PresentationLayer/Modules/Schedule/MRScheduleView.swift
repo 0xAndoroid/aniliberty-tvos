@@ -23,7 +23,7 @@ extension ScheduleViewController: ScheduleViewBehavior {
         let sections = items.reduce([any SectionAdapterProtocol]()) { result, item in
             result + [SectionAdapter([TitleCellAdapter(viewModel: item.title)]),
                       ScheduleSeriesSectionAdapter(
-                        item.items.map { ScheduleSeriesCellAdapter(viewModel: $0, seclect: { [weak self] series in
+                        item.items.map { ScheduleSeriesCellAdapter(viewModel: $0, select: { [weak self] series in
                             self?.handler.select(series: series)
                         })}
                       )]

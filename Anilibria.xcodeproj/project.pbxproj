@@ -11,8 +11,6 @@
 		C72BFEEA2B0F687E0093FD64 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C72BFEE92B0F687E0093FD64 /* Kingfisher */; };
 		C72BFEED2B0F69160093FD64 /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = C72BFEEC2B0F69160093FD64 /* DITranquillity */; };
 		C7B0F2CC22D6F0B100540CA9 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7B0F2CB22D6F0B100540CA9 /* WebKit.framework */; };
-		C7F05CA82E4EFC45006A021F /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = C7F05CA72E4EFC45006A021F /* AppMetricaCore */; };
-		C7F05CAA2E4EFC45006A021F /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = C7F05CA92E4EFC45006A021F /* AppMetricaCrashes */; };
 		F800375AF9944AFD884DACFF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5E9DF16CD21E453B9C3A7D36 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -101,7 +99,7 @@
 		C328F95D7A75438BA8B8B31B /* ApplicationLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (810353B375BC4388A5B94E7C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = ApplicationLayer; sourceTree = "<group>"; };
 		DA634ADAE19244829F2083EB /* Common */ = {isa = PBXFileSystemSynchronizedRootGroup; path = Common; sourceTree = "<group>"; };
 		DBF1B4B7E3274DA8A643520E /* DataLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DataLayer; sourceTree = "<group>"; };
-		FE2F8A5C23134702B26BD609 /* PresentationLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {Modules/ActionSheet/ActionSheetContracts.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetPresenter.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogAssembly.swift = sourcecode.swift; Modules/Catalog/MRCatalogContracts.swift = sourcecode.swift; Modules/Catalog/MRCatalogPresenter.swift = sourcecode.swift; Modules/Catalog/MRCatalogRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogView.swift = sourcecode.swift; Modules/Feed/MRFeedAssembly.swift = sourcecode.swift; Modules/Feed/MRFeedContracts.swift = sourcecode.swift; Modules/Feed/MRFeedPresenter.swift = sourcecode.swift; Modules/Feed/MRFeedRouter.swift = sourcecode.swift; Modules/Feed/MRFeedView.swift = sourcecode.swift; Modules/Filter/MRFilterAssembly.swift = sourcecode.swift; Modules/Filter/MRFilterContracts.swift = sourcecode.swift; Modules/Filter/MRFilterPresenter.swift = sourcecode.swift; Modules/Filter/MRFilterRouter.swift = sourcecode.swift; Modules/Filter/MRFilterView.swift = sourcecode.swift; Modules/History/MRHistoryAssembly.swift = sourcecode.swift; Modules/History/MRHistoryContracts.swift = sourcecode.swift; Modules/History/MRHistoryPresenter.swift = sourcecode.swift; Modules/History/MRHistoryRouter.swift = sourcecode.swift; Modules/History/MRHistoryView.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerAssembly.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerContracts.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerPresenter.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerRouter.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerView.swift = sourcecode.swift; Modules/News/MRNewsAssembly.swift = sourcecode.swift; Modules/News/MRNewsContracts.swift = sourcecode.swift; Modules/News/MRNewsPresenter.swift = sourcecode.swift; Modules/News/MRNewsRouter.swift = sourcecode.swift; Modules/News/MRNewsView.swift = sourcecode.swift; Modules/Other/MROtherAssembly.swift = sourcecode.swift; Modules/Other/MROtherContracts.swift = sourcecode.swift; Modules/Other/MROtherPresenter.swift = sourcecode.swift; Modules/Other/MROtherRouter.swift = sourcecode.swift; Modules/Other/MROtherView.swift = sourcecode.swift; Modules/Player/MRPlayerAssembly.swift = sourcecode.swift; Modules/Player/MRPlayerRouter.swift = sourcecode.swift; Modules/Player/MRPlayerView.swift = sourcecode.swift; Modules/Player/PlayerViewModel.swift = sourcecode.swift; Modules/Schedule/MRScheduleAssembly.swift = sourcecode.swift; Modules/Schedule/MRScheduleContracts.swift = sourcecode.swift; Modules/Schedule/MRSchedulePresenter.swift = sourcecode.swift; Modules/Schedule/MRScheduleRouter.swift = sourcecode.swift; Modules/Schedule/MRScheduleView.swift = sourcecode.swift; Modules/Search/MRSearchAssembly.swift = sourcecode.swift; Modules/Search/MRSearchContracts.swift = sourcecode.swift; Modules/Search/MRSearchPresenter.swift = sourcecode.swift; Modules/Search/MRSearchRouter.swift = sourcecode.swift; Modules/Search/MRSearchView.swift = sourcecode.swift; Modules/Series/MRSeriesAssembly.swift = sourcecode.swift; Modules/Series/MRSeriesContracts.swift = sourcecode.swift; Modules/Series/MRSeriesPresenter.swift = sourcecode.swift; Modules/Series/MRSeriesRouter.swift = sourcecode.swift; Modules/Series/MRSeriesView.swift = sourcecode.swift; Modules/Settings/MRSettingsAssembly.swift = sourcecode.swift; Modules/Settings/MRSettingsContracts.swift = sourcecode.swift; Modules/Settings/MRSettingsPresenter.swift = sourcecode.swift; Modules/Settings/MRSettingsRouter.swift = sourcecode.swift; Modules/Settings/MRSettingsView.swift = sourcecode.swift; Modules/SignIn/MRSignInAssembly.swift = sourcecode.swift; Modules/SignIn/MRSignInContracts.swift = sourcecode.swift; Modules/SignIn/MRSignInPresenter.swift = sourcecode.swift; Modules/SignIn/MRSignInRouter.swift = sourcecode.swift; Modules/SignIn/MRSignInView.swift = sourcecode.swift; }; path = PresentationLayer; sourceTree = "<group>"; };
+		FE2F8A5C23134702B26BD609 /* PresentationLayer */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {Modules/ActionSheet/ActionSheetContracts.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetPresenter.swift = sourcecode.swift; Modules/ActionSheet/ActionSheetRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogAssembly.swift = sourcecode.swift; Modules/Catalog/MRCatalogContracts.swift = sourcecode.swift; Modules/Catalog/MRCatalogPresenter.swift = sourcecode.swift; Modules/Catalog/MRCatalogRouter.swift = sourcecode.swift; Modules/Catalog/MRCatalogView.swift = sourcecode.swift; Modules/Feed/MRFeedAssembly.swift = sourcecode.swift; Modules/Feed/MRFeedContracts.swift = sourcecode.swift; Modules/Feed/MRFeedPresenter.swift = sourcecode.swift; Modules/Feed/MRFeedRouter.swift = sourcecode.swift; Modules/Feed/MRFeedView.swift = sourcecode.swift; Modules/Filter/MRFilterAssembly.swift = sourcecode.swift; Modules/Filter/MRFilterContracts.swift = sourcecode.swift; Modules/Filter/MRFilterPresenter.swift = sourcecode.swift; Modules/Filter/MRFilterRouter.swift = sourcecode.swift; Modules/Filter/MRFilterView.swift = sourcecode.swift; Modules/History/MRHistoryAssembly.swift = sourcecode.swift; Modules/History/MRHistoryContracts.swift = sourcecode.swift; Modules/History/MRHistoryPresenter.swift = sourcecode.swift; Modules/History/MRHistoryRouter.swift = sourcecode.swift; Modules/History/MRHistoryView.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerAssembly.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerContracts.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerPresenter.swift = sourcecode.swift; Modules/MainContainer/MRMainContainerView.swift = sourcecode.swift; Modules/News/MRNewsAssembly.swift = sourcecode.swift; Modules/News/MRNewsContracts.swift = sourcecode.swift; Modules/News/MRNewsPresenter.swift = sourcecode.swift; Modules/News/MRNewsRouter.swift = sourcecode.swift; Modules/News/MRNewsView.swift = sourcecode.swift; Modules/Other/MROtherAssembly.swift = sourcecode.swift; Modules/Other/MROtherContracts.swift = sourcecode.swift; Modules/Other/MROtherPresenter.swift = sourcecode.swift; Modules/Other/MROtherRouter.swift = sourcecode.swift; Modules/Other/MROtherView.swift = sourcecode.swift; Modules/Player/MRPlayerAssembly.swift = sourcecode.swift; Modules/Player/MRPlayerRouter.swift = sourcecode.swift; Modules/Player/MRPlayerView.swift = sourcecode.swift; Modules/Player/PlayerViewModel.swift = sourcecode.swift; Modules/Schedule/MRScheduleAssembly.swift = sourcecode.swift; Modules/Schedule/MRScheduleContracts.swift = sourcecode.swift; Modules/Schedule/MRSchedulePresenter.swift = sourcecode.swift; Modules/Schedule/MRScheduleRouter.swift = sourcecode.swift; Modules/Schedule/MRScheduleView.swift = sourcecode.swift; Modules/Search/MRSearchAssembly.swift = sourcecode.swift; Modules/Search/MRSearchContracts.swift = sourcecode.swift; Modules/Search/MRSearchPresenter.swift = sourcecode.swift; Modules/Search/MRSearchRouter.swift = sourcecode.swift; Modules/Search/MRSearchView.swift = sourcecode.swift; Modules/Series/MRSeriesAssembly.swift = sourcecode.swift; Modules/Series/MRSeriesContracts.swift = sourcecode.swift; Modules/Series/MRSeriesPresenter.swift = sourcecode.swift; Modules/Series/MRSeriesRouter.swift = sourcecode.swift; Modules/Series/MRSeriesView.swift = sourcecode.swift; Modules/Settings/MRSettingsAssembly.swift = sourcecode.swift; Modules/Settings/MRSettingsContracts.swift = sourcecode.swift; Modules/Settings/MRSettingsPresenter.swift = sourcecode.swift; Modules/Settings/MRSettingsRouter.swift = sourcecode.swift; Modules/Settings/MRSettingsView.swift = sourcecode.swift; Modules/SignIn/MRSignInAssembly.swift = sourcecode.swift; Modules/SignIn/MRSignInContracts.swift = sourcecode.swift; Modules/SignIn/MRSignInPresenter.swift = sourcecode.swift; Modules/SignIn/MRSignInRouter.swift = sourcecode.swift; Modules/SignIn/MRSignInView.swift = sourcecode.swift; }; path = PresentationLayer; sourceTree = "<group>"; };
 		FF8A9A6CEDAD4ED5B05E4300 /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (58C6B50861EA4CEF9AFC4510 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = Extensions; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -120,8 +118,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C72BFEED2B0F69160093FD64 /* DITranquillity in Frameworks */,
-				C7F05CAA2E4EFC45006A021F /* AppMetricaCrashes in Frameworks */,
-				C7F05CA82E4EFC45006A021F /* AppMetricaCore in Frameworks */,
 				C72BFEEA2B0F687E0093FD64 /* Kingfisher in Frameworks */,
 				C7B0F2CC22D6F0B100540CA9 /* WebKit.framework in Frameworks */,
 			);
@@ -243,8 +239,6 @@
 			packageProductDependencies = (
 				C72BFEE92B0F687E0093FD64 /* Kingfisher */,
 				C72BFEEC2B0F69160093FD64 /* DITranquillity */,
-				C7F05CA72E4EFC45006A021F /* AppMetricaCore */,
-				C7F05CA92E4EFC45006A021F /* AppMetricaCrashes */,
 			);
 			productName = Anilibria;
 			productReference = C7D4623F22CC73DF00E763DF /* AniLiberty.app */;
@@ -290,7 +284,6 @@
 			packageReferences = (
 				C72BFEE82B0F687E0093FD64 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C72BFEEB2B0F69160093FD64 /* XCRemoteSwiftPackageReference "DITranquillity" */,
-				C7F05CA62E4EFC45006A021F /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */,
 			);
 			productRefGroup = C7D4624022CC73DF00E763DF /* Products */;
 			projectDirPath = "";
@@ -569,7 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Anilibria/Anilibria.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Anilibria/Resources/Info.plist";
@@ -598,7 +591,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Anilibria/Anilibria.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/Anilibria/Resources/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = AniLiberty;
@@ -670,14 +663,6 @@
 				version = 4.5.0;
 			};
 		};
-		C7F05CA62E4EFC45006A021F /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/appmetrica/appmetrica-sdk-ios";
-			requirement = {
-				kind = exactVersion;
-				version = 5.12.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -695,16 +680,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C72BFEEB2B0F69160093FD64 /* XCRemoteSwiftPackageReference "DITranquillity" */;
 			productName = DITranquillity;
-		};
-		C7F05CA72E4EFC45006A021F /* AppMetricaCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C7F05CA62E4EFC45006A021F /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
-			productName = AppMetricaCore;
-		};
-		C7F05CA92E4EFC45006A021F /* AppMetricaCrashes */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C7F05CA62E4EFC45006A021F /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
-			productName = AppMetricaCrashes;
 		};
 		DEE06132D95D463288394C68 /* DITranquillity */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -20,10 +20,6 @@ struct Sizes {
     }
 }
 
-struct Keys {
-    static let yandexMetricaApiKey = "48d49aa0-6aad-407e-a738-717a6c77d603"
-}
-
 struct URLS {
     static let donate: URL? = URL(string: "https://anilibria.top/support")
 

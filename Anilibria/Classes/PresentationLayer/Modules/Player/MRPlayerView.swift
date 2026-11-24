@@ -30,7 +30,6 @@ final class PlayerViewController: BaseViewController {
     private var hideUISubscriber: AnyCancellable?
     private var pipObservation: Any?
     private var needsPlay = false
-    private var needsClose = false
     private let userInteractionSubject = PassthroughSubject<Void, Never>()
 
     private var orientation: UIInterfaceOrientationMask = .all
@@ -187,9 +186,9 @@ final class PlayerViewController: BaseViewController {
             )
         ).sink { [weak self] isPlaiyng, _ in
             if isPlaiyng {
-                self?.startAutoHiddingUI()
+                self?.startAutoHidingUI()
             } else {
-                self?.stopAutoHiddingUI()
+                self?.stopAutoHidingUI()
             }
         }.store(in: &subscribers)
 
@@ -217,7 +216,7 @@ final class PlayerViewController: BaseViewController {
         }
     }
 
-    private func startAutoHiddingUI() {
+    private func startAutoHidingUI() {
         hideUISubscriber = Timer.publish(every: 3, on: .main, in: .common)
             .autoconnect()
             .first()
@@ -226,7 +225,7 @@ final class PlayerViewController: BaseViewController {
             })
     }
 
-    private func stopAutoHiddingUI() {
+    private func stopAutoHidingUI() {
         hideUISubscriber?.cancel()
     }
 
@@ -340,37 +339,8 @@ final class PlayerViewController: BaseViewController {
 
     // MARK: - Actions
 
-    override func viewWillTransition(
-        to size: CGSize,
-        with coordinator: UIViewControllerTransitionCoordinator
-    ) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: nil, completion: { [weak self] _ in
-            guard let self else { return }
-            if needsClose {
-                needsClose = false
-                viewModel.back()
-            }
-        })
-    }
-
     @IBAction func closeAction(_ sender: Any) {
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            self.viewModel.back()
-        } else {
-            if needsClose { return }
-            if orientation == .portrait {
-                self.viewModel.back()
-            } else {
-                self.orientation = .portrait
-                if UIScreen.main.interfaceOrientation == .portrait {
-                    self.viewModel.back()
-                } else {
-                    self.needsClose = true
-                    updateOrientation()
-                }
-            }
-        }
+        viewModel.back()
     }
 
     private func updateOrientation() {
@@ -405,8 +375,8 @@ final class PlayerViewController: BaseViewController {
         viewModel.showSettings()
     }
 
-    @IBAction func toogleVideoGravity() {
-        playerView.toogleVideoGravity()
+    @IBAction func toggleVideoGravity() {
+        playerView.toggleVideoGravity()
     }
 
     @IBAction func togglePictureInPictureMode(_ sender: UIButton) {

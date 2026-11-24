@@ -18,7 +18,7 @@ public protocol Player: UIView {
     func set(time: Double)
     func set(rate: Double)
     func togglePlay()
-    func toogleVideoGravity()
+    func toggleVideoGravity()
     func getCurrentTime() -> AnyPublisher<Double, Never>
     func getPlayChanges() -> AnyPublisher<Bool, Never>
     func getStatusSequence() -> AnyPublisher<PlayerStatus, Never>

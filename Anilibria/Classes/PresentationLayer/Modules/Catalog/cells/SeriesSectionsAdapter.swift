@@ -31,7 +31,7 @@ final class SeriesSectionsAdapter: SectionAdapterProtocol {
     init(_ viewModel: any SeriesViewModelProtocol) {
         self.viewModel = viewModel
         seriesAdapter.estimatedHeight = 140
-        seriesAdapter.ipad = .init(expectedWidth: 320)
+        seriesAdapter.minimumColumnWidth = 300
         paginationAdapter.estimatedHeight = 84
 
         let factory: (Series) -> BaseCellAdapter<Series>
@@ -47,7 +47,7 @@ final class SeriesSectionsAdapter: SectionAdapterProtocol {
             }
         } else {
             factory = {
-                SeriesCellAdapter(viewModel: $0, seclect: viewModel.select)
+                SeriesCellAdapter(viewModel: $0, select: viewModel.select)
             }
         }
 
