@@ -7,7 +7,7 @@ enum DuoDivision: Equatable {
 
 extension UIView {
     var duoDivision: DuoDivision? {
-        #if compiler(>=6.4.1)
+        #if HAS_UIKIT_RESERVED_REGIONS && !targetEnvironment(macCatalyst)
         if #available(iOS 27.1, *) {
             for region in reservedRegions(kind: .division) {
                 let frame = region.frame
