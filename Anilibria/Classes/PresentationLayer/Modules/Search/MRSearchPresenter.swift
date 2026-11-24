@@ -42,10 +42,8 @@ extension SearchPresenter: SearchEventHandler {
         guard query != currentQuery else { return }
         currentQuery = query
         cancellable = nil
-        if query.isEmpty {
-            view.set(items: [])
-            return
-        }
+        view.set(items: [])
+        guard !query.isEmpty else { return }
         cancellable = Just(query)
             .delay(for: .milliseconds(250), scheduler: DispatchQueue.main)
             .setFailureType(to: Error.self)
@@ -56,8 +54,15 @@ extension SearchPresenter: SearchEventHandler {
             }, onError: { [weak self] error in
                 guard let self, self.currentQuery == query else { return }
                 self.view.set(items: [])
+                self.view.showSearchFailure()
                 self.log(.error, error.message)
             })
+    }
+
+    func retry() {
+        let query = currentQuery
+        currentQuery = ""
+        search(query: query)
     }
 
     func select(item: SearchValue) {

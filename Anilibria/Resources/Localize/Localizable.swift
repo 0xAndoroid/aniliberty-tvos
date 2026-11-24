@@ -192,6 +192,10 @@ enum L10n {
             static var `byName`: String {
                 return L10n.tr("Localizable", "common.search.by_name")
             }
+            /// Couldn't search
+            static var `unavailable`: String {
+                return L10n.tr("Localizable", "common.search.unavailable")
+            }
 
         }
 

@@ -31,16 +31,17 @@ final class SeriesViewController: BaseViewController {
 
     @IBOutlet var episodesContainer: UIView!
     @IBOutlet var compactEpisodesContainer: UIView!
+    @IBOutlet var paneLayout: SeriesPaneLayout!
 
     private let episodesView = EpisodesView()
 
     private var bag = Set<AnyCancellable>()
 
-    private var episodesContainreHidden: Bool = true {
+    private var episodesPaneVisible = false {
         didSet {
-            if episodesContainreHidden != oldValue {
-                episodesContainer.isHidden = episodesContainreHidden
-                compactEpisodesContainer.isHidden = !episodesContainreHidden
+            if episodesPaneVisible != oldValue {
+                episodesContainer.isHidden = !episodesPaneVisible
+                compactEpisodesContainer.isHidden = episodesPaneVisible
                 updateEpisodesUI()
             }
         }
@@ -79,6 +80,9 @@ final class SeriesViewController: BaseViewController {
         playConfiguration.buttonSize = .large
         playConfiguration.baseBackgroundColor = .Tint.active
         playButton.configuration = playConfiguration
+        paneLayout.onEpisodePaneChanged = { [weak self] visible in
+            self?.episodesPaneVisible = visible
+        }
         addRefreshControl(scrollView: scrollView)
         seriesImageView.smoothCorners(with: 8)
         updateEpisodesUI()
@@ -149,7 +153,6 @@ final class SeriesViewController: BaseViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        episodesContainreHidden = view.bounds.width < 640
         playButtonInset = playButton.isHidden ? 16 : playButton.frame.height + 24
     }
 
@@ -173,7 +176,7 @@ final class SeriesViewController: BaseViewController {
 
     private func updateEpisodesUI() {
         episodesView.removeFromSuperview()
-        if episodesContainreHidden {
+        if !episodesPaneVisible {
             episodesView.isCompact = true
             compactEpisodesContainer.addSubview(episodesView)
         } else {
