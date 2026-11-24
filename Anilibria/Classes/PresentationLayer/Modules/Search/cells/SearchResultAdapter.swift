@@ -9,8 +9,8 @@ public enum SearchValue: Hashable {
 final class SearchResultAdapter: BaseCellAdapter<SearchValue> {
     private var selectAction: ((SearchValue) -> Void)?
 
-    init(viewModel: SearchValue, seclect: ((SearchValue) -> Void)?) {
-        self.selectAction = seclect
+    init(viewModel: SearchValue, select: ((SearchValue) -> Void)?) {
+        self.selectAction = select
         super.init(viewModel: viewModel)
     }
 

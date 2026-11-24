@@ -24,8 +24,7 @@ final class SeriesViewController: BaseViewController {
     @IBOutlet var relatedShimmerView: ShimmerView!
     @IBOutlet var contentShimmerViews: [ShimmerView] = []
 
-    @IBOutlet var playButtonLabel: UILabel!
-    @IBOutlet var playButtonContainer: ShadowView!
+    @IBOutlet var playButton: UIButton!
 
     @IBOutlet var weekDayView: WeekDayView!
     @IBOutlet var seriesImageView: UIImageView!
@@ -69,6 +68,17 @@ final class SeriesViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupNavigationButtons()
+        var playConfiguration: UIButton.Configuration
+        if #available(iOS 26.0, *) {
+            playConfiguration = .prominentGlass()
+        } else {
+            playConfiguration = .filled()
+        }
+        playConfiguration.image = .System.play
+        playConfiguration.imagePadding = 8
+        playConfiguration.buttonSize = .large
+        playConfiguration.baseBackgroundColor = .Tint.active
+        playButton.configuration = playConfiguration
         addRefreshControl(scrollView: scrollView)
         seriesImageView.smoothCorners(with: 8)
         updateEpisodesUI()
@@ -140,7 +150,7 @@ final class SeriesViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         episodesContainreHidden = view.bounds.width < 640
-        playButtonInset = playButtonContainer.frame.height + 30
+        playButtonInset = playButton.isHidden ? 16 : playButton.frame.height + 24
     }
 
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -175,9 +185,9 @@ final class SeriesViewController: BaseViewController {
 
     private func setupNavigationButtons() {
         var items = [UIBarButtonItem]()
-        let shareButton = BarButton(image: .System.share) { [weak self] in
+        let shareButton = UIBarButtonItem(systemItem: .action, primaryAction: UIAction { [weak self] _ in
             self?.handler.share()
-        }
+        })
         items.append(shareButton)
         #if targetEnvironment(macCatalyst)
         let refreshButton = BarButton(image: .System.refresh) { [weak self] in
@@ -236,12 +246,9 @@ extension SeriesViewController: SeriesViewBehavior {
     }
 
     func set(playInfo: String?) {
-        if let playInfo {
-            playButtonContainer.isHidden = false
-            playButtonLabel.text = playInfo
-        } else {
-            playButtonContainer.isHidden = true
-        }
+        playButton.configuration?.title = playInfo
+        playButton.isHidden = playInfo == nil
+        view.setNeedsLayout()
     }
 
     func set(favorite: Bool) {
