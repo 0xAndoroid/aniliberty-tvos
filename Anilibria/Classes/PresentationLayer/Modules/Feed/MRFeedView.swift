@@ -42,9 +42,11 @@ final class FeedViewController: BaseCollectionViewController {
     }
 
     private func setupNavbar() {
-        var items = [UIBarButtonItem(systemItem: .search, primaryAction: UIAction { [weak self] _ in
+        let search = UIBarButtonItem(systemItem: .search, primaryAction: UIAction { [weak self] _ in
             self?.handler.search()
-        })]
+        })
+        search.accessibilityIdentifier = "feed.search"
+        var items = [search]
         #if targetEnvironment(macCatalyst)
         items.append(self.refreshButton)
         #endif
@@ -62,6 +64,7 @@ final class FeedViewController: BaseCollectionViewController {
         case let items as [ActionItem]:
             let section = SectionAdapter(items.map(ActionCellAdapter.init))
             section.minimumColumnWidth = 250
+            section.insets.top = 8
             return section
         default:
             return nil

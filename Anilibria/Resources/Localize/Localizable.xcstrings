@@ -988,6 +988,22 @@
         }
       }
     },
+    "common.search.unavailable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't search"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось выполнить поиск"
+          }
+        }
+      }
+    },
     "common.seasons.fall" : {
       "extractionState" : "migrated",
       "localizations" : {

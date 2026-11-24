@@ -27,6 +27,7 @@ final class SearchViewController: BaseCollectionViewController {
         definesPresentationContext = true
         search.obscuresBackgroundDuringPresentation = false
         search.hidesNavigationBarDuringPresentation = false
+        search.automaticallyShowsCancelButton = false
         search.delegate = self
         search.searchResultsUpdater = self
         search.searchBar.searchTextField.accessibilityIdentifier = "search.query"
@@ -63,6 +64,9 @@ extension SearchViewController: UISearchControllerDelegate, UISearchResultsUpdat
 
 extension SearchViewController: SearchViewBehavior {
     func set(items: [SearchValue]) {
+        if #available(iOS 17.0, *) {
+            contentUnavailableConfiguration = nil
+        }
         let section = SectionAdapter(items.map {
             SearchResultAdapter(viewModel: $0, select: { [weak self] item in
                 self?.handler.select(item: item)
@@ -70,5 +74,18 @@ extension SearchViewController: SearchViewBehavior {
         })
         section.minimumColumnWidth = 285
         set(sections: [section], animated: false)
+    }
+
+    func showSearchFailure() {
+        if #available(iOS 17.0, *) {
+            var configuration = UIContentUnavailableConfiguration.empty()
+            configuration.text = L10n.Common.Search.unavailable
+            configuration.button = .tinted()
+            configuration.button.title = L10n.Buttons.retry
+            configuration.buttonProperties.primaryAction = UIAction { [weak self] _ in
+                self?.handler.retry()
+            }
+            contentUnavailableConfiguration = configuration
+        }
     }
 }
