@@ -407,7 +407,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="toogleVideoGravity" destination="-1" eventType="touchUpInside" id="Knj-Qa-Z5E"/>
+                                                        <action selector="toggleVideoGravity" destination="-1" eventType="touchUpInside" id="Knj-Qa-Z5E"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuP-YR-HUs" customClass="RippleButton" customModule="Anilibria" customModuleProvider="target">

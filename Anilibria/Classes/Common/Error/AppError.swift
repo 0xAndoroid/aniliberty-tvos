@@ -22,7 +22,7 @@ extension AppError: ErrorDisplayable {
             return "Error: \(code.rawValue)"
         case let .network(code):
             switch code {
-            case 403: return L10n.Error.authorizationInvailid
+            case 403: return L10n.Error.authorizationInvalid
             case 401: return L10n.Error.authorizationFailed
             default: return "Network Error: \(code)"
             }

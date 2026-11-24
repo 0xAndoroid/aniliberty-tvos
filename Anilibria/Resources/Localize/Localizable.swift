@@ -124,6 +124,10 @@ enum L10n {
             static var `postponed`: String {
                 return L10n.tr("Localizable", "common.collections.postponed")
             }
+            /// Collections
+            static var `title`: String {
+                return L10n.tr("Localizable", "common.collections.title")
+            }
             /// Watched
             static var `watched`: String {
                 return L10n.tr("Localizable", "common.collections.watched")
@@ -420,21 +424,21 @@ enum L10n {
             return L10n.tr("Localizable", "error.authorization_failed")
         }
         /// Authorization is invalid :(
-        static var `authorizationInvailid`: String {
-            return L10n.tr("Localizable", "error.authorization_invailid")
+        static var `authorizationInvalid`: String {
+            return L10n.tr("Localizable", "error.authorization_invalid")
         }
         /// Configuration file is broken D:
-        static var `configirationBroken`: String {
-            return L10n.tr("Localizable", "error.configiration_broken")
+        static var `configurationBroken`: String {
+            return L10n.tr("Localizable", "error.configuration_broken")
         }
         /// Loading configuration file failed :(
-        static var `configirationEmpty`: String {
-            return L10n.tr("Localizable", "error.configiration_empty")
+        static var `configurationEmpty`: String {
+            return L10n.tr("Localizable", "error.configuration_empty")
         }
         /// (｡•́︿•̀｡)
         /// Unfortunately, we were unable to find the optimal configuration for you. To use the app you have to run a VPN.
-        static var `configirationNotFound`: String {
-            return L10n.tr("Localizable", "error.configiration_not_found")
+        static var `configurationNotFound`: String {
+            return L10n.tr("Localizable", "error.configuration_not_found")
         }
         /// OTP is not found
         static var `otpNotFound`: String {
@@ -452,7 +456,7 @@ enum L10n {
     }
 
     enum Permission {
-        /// To recieve push notifications you should enable it on the iOS Settings.
+        /// To receive push notifications you should enable it on the iOS Settings.
         static var `push`: String {
             return L10n.tr("Localizable", "permission.push")
         }
@@ -522,7 +526,7 @@ enum L10n {
             static var `history`: String {
                 return L10n.tr("Localizable", "screen.feed.history")
             }
-            /// Randome release
+            /// Random release
             static var `randomRelease`: String {
                 return L10n.tr("Localizable", "screen.feed.random_release")
             }
@@ -547,14 +551,14 @@ enum L10n {
 
         enum Filter {
 
-            enum Sotring {
+            enum Sorting {
                 /// Newest
                 static var `newest`: String {
-                    return L10n.tr("Localizable", "screen.filter.Sotring.newest")
+                    return L10n.tr("Localizable", "screen.filter.Sorting.newest")
                 }
                 /// Popularity
                 static var `popularity`: String {
-                    return L10n.tr("Localizable", "screen.filter.Sotring.popularity")
+                    return L10n.tr("Localizable", "screen.filter.Sorting.popularity")
                 }
 
             }
@@ -633,6 +637,10 @@ enum L10n {
             /// Our team
             static var `team`: String {
                 return L10n.tr("Localizable", "screen.other.team")
+            }
+            /// More
+            static var `title`: String {
+                return L10n.tr("Localizable", "screen.other.title")
             }
 
         }

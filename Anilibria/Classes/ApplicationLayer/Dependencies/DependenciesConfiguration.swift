@@ -1,9 +1,6 @@
 import DITranquillity
 import Kingfisher
 import UIKit
-#if os(iOS) && !targetEnvironment(macCatalyst)
-import AppMetricaCore
-#endif
 
 public protocol DependenciesConfiguration: AnyObject {
     func setup()
@@ -32,19 +29,10 @@ public class DependenciesConfigurationBase: DependenciesConfiguration, Loggable 
     // MARK: - Setup
 
     public func setup() {
-        self.setupMetrica()
         self.setupLoader()
         self.setupModulesDependencies()
         let modifier = ImageRequestModifier(appConfig: container.resolve())
         KingfisherManager.shared.defaultOptions.append(.requestModifier(modifier))
-    }
-
-    private func setupMetrica() {
-        #if os(iOS) && !targetEnvironment(macCatalyst)
-        if let config = AppMetricaConfiguration(apiKey: Keys.yandexMetricaApiKey) {
-            AppMetrica.activate(with: config)
-        }
-        #endif
     }
 
     private func setupModulesDependencies() {

@@ -24,7 +24,7 @@ final class SoonSectionsAdapter: SectionAdapterProtocol {
         viewModel.selectedDay.sink { [weak self] _ in
             guard let self else { return }
             let items = viewModel.items.map {
-                ScheduleSeriesCellAdapter(viewModel: $0, seclect: viewModel.selectSeries)
+                ScheduleSeriesCellAdapter(viewModel: $0, select: viewModel.selectSeries)
             }
 
             scheduleAdapter.set(items)

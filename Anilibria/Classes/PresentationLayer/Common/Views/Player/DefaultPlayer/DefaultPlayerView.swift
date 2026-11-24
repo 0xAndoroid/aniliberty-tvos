@@ -134,7 +134,7 @@ public final class DefaultPlayerView: UIView, Player {
         }
     }
 
-    public func toogleVideoGravity() {
+    public func toggleVideoGravity() {
         switch playerLayer?.videoGravity {
         case .resizeAspect:
             playerLayer?.videoGravity = .resizeAspectFill

@@ -13,9 +13,9 @@ final class NewsCellAdapter: BaseCellAdapter<News> {
     private var width: CGFloat?
     private var selectAction: ((News) -> Void)?
 
-    init(viewModel: News, seclect: ((News) -> Void)?) {
+    init(viewModel: News, select: ((News) -> Void)?) {
 
-        self.selectAction = seclect
+        self.selectAction = select
         super.init(viewModel: viewModel)
     }
 

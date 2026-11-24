@@ -530,6 +530,22 @@
         }
       }
     },
+    "common.collections.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collections"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коллекции"
+          }
+        }
+      }
+    },
     "common.collections.watched" : {
       "extractionState" : "migrated",
       "localizations" : {
@@ -1535,7 +1551,7 @@
         }
       }
     },
-    "error.authorization_invailid" : {
+    "error.authorization_invalid" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -1552,7 +1568,7 @@
         }
       }
     },
-    "error.configiration_broken" : {
+    "error.configuration_broken" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -1569,7 +1585,7 @@
         }
       }
     },
-    "error.configiration_empty" : {
+    "error.configuration_empty" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -1586,7 +1602,7 @@
         }
       }
     },
-    "error.configiration_not_found" : {
+    "error.configuration_not_found" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -1660,7 +1676,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "To recieve push notifications you should enable it on the iOS Settings."
+            "value" : "To receive push notifications you should enable it on the iOS Settings."
           }
         },
         "ru" : {
@@ -1852,7 +1868,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Randome release"
+            "value" : "Random release"
           }
         },
         "ru" : {
@@ -2051,7 +2067,7 @@
         }
       }
     },
-    "screen.filter.Sotring.newest" : {
+    "screen.filter.Sorting.newest" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -2068,7 +2084,7 @@
         }
       }
     },
-    "screen.filter.Sotring.popularity" : {
+    "screen.filter.Sorting.popularity" : {
       "extractionState" : "migrated",
       "localizations" : {
         "en" : {
@@ -2238,6 +2254,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Список команды"
+          }
+        }
+      }
+    },
+    "screen.other.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ещё"
           }
         }
       }

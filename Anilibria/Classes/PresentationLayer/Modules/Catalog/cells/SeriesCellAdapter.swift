@@ -3,8 +3,8 @@ import UIKit
 final class SeriesCellAdapter: BaseCellAdapter<Series> {
     private var selectAction: ((Series) -> Void)?
 
-    init(viewModel: Series, seclect: ((Series) -> Void)?) {
-        self.selectAction = seclect
+    init(viewModel: Series, select: ((Series) -> Void)?) {
+        self.selectAction = select
         super.init(viewModel: viewModel)
     }
 

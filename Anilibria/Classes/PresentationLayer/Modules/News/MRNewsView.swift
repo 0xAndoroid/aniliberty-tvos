@@ -16,7 +16,7 @@ final class NewsViewController: BaseCollectionViewController {
     private let sectionAdapter: SectionAdapter = {
         let section = SectionAdapter([])
         section.estimatedHeight = 250
-        section.ipad = .init(expectedWidth: 320)
+        section.minimumColumnWidth = 320
         return section
     }()
 
@@ -53,7 +53,7 @@ final class NewsViewController: BaseCollectionViewController {
     private func createAdapter(for model: any Hashable) -> AnyCellAdapter? {
         switch model {
         case let item as News:
-            return NewsCellAdapter(viewModel: item, seclect: { [weak self] item in
+            return NewsCellAdapter(viewModel: item, select: { [weak self] item in
                 self?.handler.select(news: item)
             })
         default:
